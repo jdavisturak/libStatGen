@@ -799,10 +799,10 @@ bool FastQFile::validateSequencePlus()
    // Check to see if there is more to the line than just the plus
    int lineLength = myPlusLine.Length();
    
-   // If the line is only 1 character or the second character is a space,
+   // If the line is only 1 character or the second character is whitespace,
    // then there is no sequence identifier on this line and there is nothing
    // further to validate.
-   if((lineLength == 1) || (myPlusLine[1] == ' '))
+   if((lineLength == 1) || (myPlusLine[1] == ' ') || (myPlusLine[1] == '\t') || (myPlusLine[1] == '\r'))
    {
       // No sequence identifier, so just return valid.
       return true;
